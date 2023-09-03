@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="i3,nvim,tmux,zsh"
+fi
+
+set -f 
+array=(${STOW_FOLDERS//,/ })
+
+for folder in "${array[@]}"
+do
+    echo "stow $folder"
+    stow -D $folder
+    stow $folder
+done
