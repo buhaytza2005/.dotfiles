@@ -101,3 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 bindkey -s ^f "tmux-sessionizer\n"
+alias ll='ls -alF'
+
