@@ -102,5 +102,5 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 bindkey -s ^f "tmux-sessionizer\n"
 alias ll='ls -alF'
-export PATH=/home/buhay/.local:$PATH
+export PATH=/home/buhay/.local/scripts:$PATH
 
