@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,7 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^f "$HOME/.local/scripts/tmux-sessionizer\n"
 alias ll='ls -alF'
-export PATH=/home/buhay/.local/scripts:$PATH
-
+path+=$HOME/.local/scripts
+path+=$HOME/.local/bin
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
