@@ -105,3 +105,4 @@ bindkey -s ^f "$HOME/.local/scripts/tmux-sessionizer\n"
 alias ll='ls -alF'
 path+=$HOME/.local/scripts
 path+=$HOME/.local/bin
+

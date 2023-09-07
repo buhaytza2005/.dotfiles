@@ -248,7 +248,7 @@ vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
@@ -322,7 +322,7 @@ require('nvim-treesitter.configs').setup {
   auto_install = false,
 
   highlight = { enable = true },
-  indent = { enable = true },
+  --indent = { enable = true },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -444,7 +444,8 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  pylsp = {},
+  
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -476,18 +477,6 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end
-}
-require('lspconfig').pylsp.setup {
-  on_attach = on_attach,
-  settings = {
-    pylsp = {
-      plugins = {
-        pyflakes = {enabled = false}
-
-      }
-    }
-  }
-
 }
 
 -- [[ Configure nvim-cmp ]]
@@ -535,6 +524,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'pylsp' },
   },
 }
 
@@ -561,34 +551,61 @@ vim.api.nvim_set_keymap('i', '<F1>', '<Esc>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<F1>', '<Esc>', { noremap = true})
 vim.api.nvim_set_keymap('v', '<F1>', '<Esc>', { noremap = true})
 
-vim.opt.guicursor = ""
+vim.opt.guicursor=""
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.nu=true
+vim.opt.relativenumber=true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.tabstop=4
+vim.opt.softtabstop=4
+vim.opt.shiftwidth=4
 
 
-vim.opt.smartindent = true
+vim.opt.smartindent=true
 
-vim.opt.wrap = true
+vim.opt.wrap=true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.opt.swapfile=false
+vim.opt.backup=false
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.opt.hlsearch=false
+vim.opt.incsearch=true
 
-vim.opt.termguicolors = true
+vim.opt.termguicolors=true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.updatetime = 50
+vim.opt.scrolloff=8
+vim.opt.signcolumn="yes"
+vim.opt.updatetime=50
 
-vim.colorcolumn = "80"
-
+vim.opt.colorcolumn="100"
+vim.api.nvim_create_autocmd( "FileType", {
+  pattern = "python",
+  callback = function()
+    vim.schedule(function()
+      vim.opt.shiftwidth=4
+    end)
+  end,
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 100,
+          indentSize = 4,
+        },
+        flake8 = {
+          indentSize = 4,
+        },
+        pyflakes = {
+          indentSize = 4,
+        },
+
+      }
+    }
+  }
+}
