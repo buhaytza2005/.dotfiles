@@ -454,9 +454,11 @@ local servers = {
         },
         flake8 = {
           indentSize = 4,
+          maxLineLength = 100,
         },
         pyflakes = {
           indentSize = 4,
+          maxLineLength = 100,
         },
 
 
