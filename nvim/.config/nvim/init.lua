@@ -319,7 +319,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  auto_install = true,
 
   highlight = { enable = true },
   --indent = { enable = true },
@@ -444,7 +444,25 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  pylsp = {},
+  pylsp = {
+
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 100,
+          indentSize = 4,
+        },
+        flake8 = {
+          indentSize = 4,
+        },
+        pyflakes = {
+          indentSize = 4,
+        },
+
+
+      }
+    }
+ },
   
   lua_ls = {
     Lua = {
@@ -588,24 +606,3 @@ vim.api.nvim_create_autocmd( "FileType", {
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
---
-
-require'lspconfig'.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          maxLineLength = 100,
-          indentSize = 4,
-        },
-        flake8 = {
-          indentSize = 4,
-        },
-        pyflakes = {
-          indentSize = 4,
-        },
-
-      }
-    }
-  }
-}
