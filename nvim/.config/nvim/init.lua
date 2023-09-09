@@ -448,7 +448,7 @@ local servers = {
         },
   },
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   pylsp = {
@@ -552,6 +552,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'pylsp' },
+    { name = 'rust_analyzer' },
   },
 }
 
