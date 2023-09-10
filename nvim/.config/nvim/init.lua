@@ -555,7 +555,6 @@ cmp.setup {
     { name = 'rust_analyzer' },
   },
 }
-
 --Harpoon stuff
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
