@@ -87,14 +87,15 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
-  { 'ThePrimeagen/harpoon'
-  },
+  { 'ThePrimeagen/harpoon' },
+  { 'preservim/vim-pencil' },
+  { "lervag/vimtex",       lazy = false },
 
   {
     -- Autocompletion
@@ -113,7 +114,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -127,22 +128,23 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
+          { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
         vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
       end,
     },
   },
 
---  {
---    -- Theme inspired by Atom
---    'navarasu/onedark.nvim',
---    priority = 1000,
---    config = function()
---      vim.cmd.colorscheme 'onedark'
---    end,
---  },
---
+  --  {
+  --    -- Theme inspired by Atom
+  --    'navarasu/onedark.nvim',
+  --    priority = 1000,
+  --    config = function()
+  --      vim.cmd.colorscheme 'onedark'
+  --    end,
+  --  },
+  --
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -316,12 +318,17 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+    'markdown' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = true,
 
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = "latex",
+    aditional_vim_regex_highlighting = {"latex", "markdown"}
+  },
   --indent = { enable = true },
   incremental_selection = {
     enable = true,
@@ -441,11 +448,11 @@ local servers = {
   -- clangd = {},
   gopls = {
     gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          staticcheck = true,
-        },
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
   },
   -- pyright = {},
   rust_analyzer = {},
@@ -471,8 +478,8 @@ local servers = {
 
       }
     }
- },
-  
+  },
+
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -574,42 +581,42 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 --tmux
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.api.nvim_set_keymap('i', '<F1>', '<Esc>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<F1>', '<Esc>', { noremap = true})
-vim.api.nvim_set_keymap('v', '<F1>', '<Esc>', { noremap = true})
+vim.api.nvim_set_keymap('i', '<F1>', '<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F1>', '<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<F1>', '<Esc>', { noremap = true })
 
-vim.opt.guicursor=""
+vim.opt.guicursor = ""
 
-vim.opt.nu=true
-vim.opt.relativenumber=true
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
-vim.opt.tabstop=4
-vim.opt.softtabstop=4
-vim.opt.shiftwidth=4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
 
-vim.opt.smartindent=true
+vim.opt.smartindent = true
 
-vim.opt.wrap=true
+vim.opt.wrap = true
 
-vim.opt.swapfile=false
-vim.opt.backup=false
+vim.opt.swapfile = false
+vim.opt.backup = false
 
-vim.opt.hlsearch=false
-vim.opt.incsearch=true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
-vim.opt.termguicolors=true
+vim.opt.termguicolors = true
 
-vim.opt.scrolloff=8
-vim.opt.signcolumn="yes"
-vim.opt.updatetime=50
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 50
 
-vim.opt.colorcolumn="100"
-vim.api.nvim_create_autocmd( "FileType", {
+vim.opt.colorcolumn = "100"
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
   callback = function()
     vim.schedule(function()
-      vim.opt.shiftwidth=4
+      vim.opt.shiftwidth = 4
     end)
   end,
 })
