@@ -71,8 +71,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-plugins=(git zsh-autosuggestions virtualenvwrapper)
-
+plugins=(git zsh-autosuggestions virtualenvwrapper ssh-agent)
+zstyle :omz:plugins:ssh-agent identities github
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
