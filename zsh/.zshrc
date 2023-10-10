@@ -107,3 +107,4 @@ path+=$HOME/.local/scripts
 path+=$HOME/.local/bin
 path+=$HOME/.cargo/env
 path+=/usr/local/go/bin
+alias pip='noglob pip'
