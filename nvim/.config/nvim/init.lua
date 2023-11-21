@@ -11,7 +11,7 @@ Kickstart.nvim is a template for your own configuration.
   what your configuration is doing, and modify it to suit your needs.
 
   Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!
+  explore Neovim!   
 
   If you don't know anything about Lua, I recommend taking some time to read through
   a guide. One possible example:
@@ -136,15 +136,15 @@ require('lazy').setup({
     },
   },
 
-  --  {
-  --    -- Theme inspired by Atom
-  --    'navarasu/onedark.nvim',
-  --    priority = 1000,
-  --    config = function()
-  --      vim.cmd.colorscheme 'onedark'
-  --    end,
-  --  },
-  --
+    {
+      -- Theme inspired by Atom
+      'navarasu/onedark.nvim',
+      priority = 1000,
+      config = function()
+        vim.cmd.colorscheme 'onedark'
+      end,
+    },
+  
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -161,13 +161,11 @@ require('lazy').setup({
 
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
+    'lukas-reineke/indent-blankline.nvim',  
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = "ibl",
+    opts = {},
   },
 
   -- "gc" to comment visual regions/lines
@@ -446,14 +444,14 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  gopls = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
+ -- gopls = {
+ --   gopls = {
+ --     analyses = {
+ --       unusedparams = true,
+ --     },
+ --     staticcheck = true,
+ --   },
+ -- },
   -- pyright = {},
   rust_analyzer = {},
   tsserver = {},
