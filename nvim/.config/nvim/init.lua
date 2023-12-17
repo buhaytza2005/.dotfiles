@@ -42,7 +42,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
+vim.g.copilot_assume_mapped = true
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -73,6 +73,8 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+  --mine
+  'github/copilot.vim',
   'wakatime/vim-wakatime',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -102,7 +104,7 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
+      {'L3MON4D3/LuaSnip', build = "make install_jsregexp"},
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
