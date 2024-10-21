@@ -251,7 +251,7 @@ require('lazy').setup({
     event = "BufReadPost",
     opts = {
       provider_selector = function()
-        return { "treesitter", "indent" }
+        return { "lsp", "indent" }
       end,
     },
 
