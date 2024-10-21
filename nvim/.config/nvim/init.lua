@@ -191,6 +191,13 @@ require('lazy').setup({
       },
     },
   },
+  { 
+    'nvim-treesitter/nvim-treesitter-context',
+    enable=true,
+    mode = 'cursor', 
+    max_lines = 1,
+    multiline_threshold = 3,
+  },
 
   {
     -- Highlight, edit, and navigate code
@@ -214,12 +221,68 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  --
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup({
+            relculright = true,
+            segments = {
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+            },
+          })
+        end,
+      },
+    },
+    event = "BufReadPost",
+    opts = {
+      provider_selector = function()
+        return { "treesitter", "indent" }
+      end,
+    },
+
+    init = function()
+      vim.keymap.set("n", "zR", function()
+        require("ufo").openAllFolds()
+      end)
+      vim.keymap.set("n", "zM", function()
+        require("ufo").closeAllFolds()
+      end)
+    end,
+  },
+  -- Folding preview, by default h and l keys are used.
+  -- On first press of h key, when cursor is on a closed fold, the preview will be shown.
+  -- On second press the preview will be closed and fold will be opened.
+  -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
+  { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
+
 }, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- test folding
+-- UFO folding
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep:|,foldclose:>]]
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -316,7 +379,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c','c_sharp', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+  ensure_installed = { 'c','c_sharp', 'cpp', 'go','python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
     'markdown' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -478,12 +541,6 @@ local servers = {
     }
   },
 
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
@@ -576,7 +633,14 @@ vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+--open explorer
+vim.keymap.set("n", "<C-l>", ":Explore<CR>")
 
+--lock arrows
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 --center on moving through the screen
 vim.keymap.set("n", "J", "mzJ`z")

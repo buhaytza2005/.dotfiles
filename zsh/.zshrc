@@ -111,3 +111,4 @@ alias pip='noglob pip'
 export ENVIRONMENT='dev'
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+alias gac='git add . && git commit'

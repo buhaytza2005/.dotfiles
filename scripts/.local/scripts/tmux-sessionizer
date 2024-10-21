@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #!/usr/bin/env bash
 
-selected=$(find ~/ ~/personal ~/work_repos -mindepth 1 -maxdepth 1 -type d | fzf)
+selected=$(find ~/ ~/personal ~/work_repos ~/projects /mnt/storage/work_repos /mnt/storage/personal -mindepth 1 -maxdepth 1 -type d | fzf)
 
 selected_name=$(basename "$selected" | tr . _)
 
