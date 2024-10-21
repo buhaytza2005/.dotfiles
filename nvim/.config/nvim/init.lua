@@ -11,7 +11,7 @@ Kickstart.nvim is a template for your own configuration.
   what your configuration is doing, and modify it to suit your needs.
 
   Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!   
+  explore Neovim!
 
   If you don't know anything about Lua, I recommend taking some time to read through
   a guide. One possible example:
@@ -42,7 +42,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_assume_mapped = true
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -71,10 +71,11 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- mine
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
   'wakatime/vim-wakatime',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -104,7 +105,7 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      {'L3MON4D3/LuaSnip', build = "make install_jsregexp" },
+      { 'L3MON4D3/LuaSnip', build = "make install_jsregexp" },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
@@ -138,15 +139,15 @@ require('lazy').setup({
     },
   },
 
-    {
-      -- Theme inspired by Atom
-      'navarasu/onedark.nvim',
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme 'onedark'
-      end,
-    },
-  
+  {
+    -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -163,7 +164,7 @@ require('lazy').setup({
 
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',  
+    'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     main = "ibl",
@@ -203,6 +204,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -216,6 +218,20 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+      vim.opt.tabstop = 2
+      vim.opt.softtabstop = 2
+      vim.opt.shiftwidth = 2
+    end
+  },
+-- {
+--   'Exafunction/codeium.vim',
+--   event = 'BufEnter'
+-- }
 }, {})
 
 -- [[ Setting options ]]
@@ -318,7 +334,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+  ensure_installed = { 'c', 'cpp', 'go', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
     'markdown' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -327,7 +343,7 @@ require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
     disable = "latex",
-    aditional_vim_regex_highlighting = {"latex", "markdown"}
+    aditional_vim_regex_highlighting = { "latex", "markdown" }
   },
   --indent = { enable = true },
   incremental_selection = {
@@ -385,11 +401,21 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+
+
+-- TIP: Disable arrow keys in normal mode
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -446,14 +472,14 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
- -- gopls = {
- --   gopls = {
- --     analyses = {
- --       unusedparams = true,
- --     },
- --     staticcheck = true,
- --   },
- -- },
+  -- gopls = {
+  --   gopls = {
+  --     analyses = {
+  --       unusedparams = true,
+  --     },
+  --     staticcheck = true,
+  --   },
+  -- },
   -- pyright = {},
   rust_analyzer = {},
   tsserver = {},
@@ -480,12 +506,6 @@ local servers = {
     }
   },
 
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
@@ -578,7 +598,8 @@ vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-
+--browse files
+vim.keymap.set("n", "<C-l>", "<cmd>:Ex<CR>")
 
 --center on moving through the screen
 vim.keymap.set("n", "J", "mzJ`z")

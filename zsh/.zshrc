@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-plugins=(git zsh-autosuggestions virtualenvwrapper ssh-agent)
+plugins=(git zsh-autosuggestions ssh-agent)
 zstyle :omz:plugins:ssh-agent identities github
 source $ZSH/oh-my-zsh.sh
 
@@ -108,3 +108,7 @@ path+=$HOME/.local/bin
 path+=$HOME/.cargo/env
 path+=/usr/local/go/bin
 alias pip='noglob pip'
+export ENVIRONMENT="dev"
+export GOPATH=$HOME/go
+export PATH=$PATH:$(go env GOPATH)/bin
+export PAGER=

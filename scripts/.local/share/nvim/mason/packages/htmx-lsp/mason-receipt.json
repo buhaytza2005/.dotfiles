@@ -1,0 +1,1 @@
+{"secondary_sources":[],"primary_source":{"id":"pkg:cargo\/htmx-lsp@0.1.0","type":"registry+v1"},"links":{"share":{},"bin":{"htmx-lsp":"bin\/htmx-lsp"},"opt":{}},"name":"htmx-lsp","metrics":{"completion_time":1707722954424,"start_time":1707722933510},"schema_version":"1.1"}

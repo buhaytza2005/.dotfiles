@@ -1,0 +1,1 @@
+WARN  | main: Removing snippet : Removing snippet `` due to error ...are/nvim/lazy/LuaSnip/lua/luasnip/nodes/functionNode.lua:47: Refusing to update inside a snippet with invalid extmarks

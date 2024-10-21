@@ -1,0 +1,161 @@
+ERR 2024-01-19T06:52:58.101 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:52:59.137 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:52:59.778 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:00.368 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:00.717 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:01.348 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:05.060 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:05.901 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:06.466 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:06.738 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-01-19T06:53:08.567 nvim.30184.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -170,1 +170,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:36.447 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:37.435 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:38.186 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:39.482 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:41.450 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:42.161 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:42.623 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:42.787 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:42.946 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:43.085 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:43.470 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
+ERR 2024-06-18T13:40:45.076 nvim.159693.0 decor_provider_error:37: error in provider gitsigns.win: Error executing lua: ...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: Invalid hunk with untracked=true hunk="@@ -64,1 +64,1 @@"
+stack traceback:
+	[C]: in function 'assert'
+	...cal/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/hunks.lua:172: in function 'calc_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:53: in function 'apply_win_signs0'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:72: in function 'apply_win_signs'
+	...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:569: in function <...l/share/nvim/lazy/gitsigns.nvim/lua/gitsigns/manager.lua:562>
