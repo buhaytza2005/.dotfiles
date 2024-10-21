@@ -112,3 +112,4 @@ export ENVIRONMENT="dev"
 export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export PAGER=
+alias gac='git add . && git commit'

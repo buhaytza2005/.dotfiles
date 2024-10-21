@@ -169,6 +169,7 @@ require('lazy').setup({
     -- See `:help indent_blankline.txt`
     main = "ibl",
     opts = {},
+    version = "3.5.4",
   },
 
   -- "gc" to comment visual regions/lines
@@ -500,6 +501,7 @@ local servers = {
           indentSize = 4,
           maxLineLength = 100,
         },
+        pylsp_mypy = { enabled = true }
 
 
       }
