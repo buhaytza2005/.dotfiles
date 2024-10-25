@@ -194,9 +194,10 @@ require('lazy').setup({
   { 
     'nvim-treesitter/nvim-treesitter-context',
     enable=true,
-    mode = 'cursor', 
+    mode = 'outer', 
     max_lines = 1,
-    multiline_threshold = 3,
+    multiline_threshold = 1,
+
   },
 
   {
@@ -461,6 +462,10 @@ local on_attach = function(_, bufnr)
   --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
+  local toggleInlay = function()
+    local current_value = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+    vim.lsp.inlay_hint.enable(not current_value, { bufnr = 0 })
+  end
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -469,6 +474,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  nmap('\\i', toggleInlay, 'toggle inlay hint')
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
