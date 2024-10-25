@@ -204,6 +204,14 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    enable=true,
+    mode = 'cursor',
+    max_lines = 1,
+    multiline_threshold = 3,
+
+  },
 
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -229,6 +237,45 @@ require('lazy').setup({
       vim.opt.shiftwidth = 2
     end
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup({
+            relculright = true,
+            segments = {
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+            },
+          })
+        end,
+      },
+    },
+    event = "BufReadPost",
+    opts = {
+      provider_selector = function()
+        return { "lsp", "indent" }
+      end,
+    },
+    init = function()
+      vim.keymap.set("n", "zR", function()
+        require("ufo").openAllFolds()
+      end)
+      vim.keymap.set("n", "zM", function()
+        require("ufo").closeAllFolds()
+      end)
+    end,
+  },
+  -- Folding preview, by default h and l keys are used.
+  -- On first press of h key, when cursor is on a closed fold, the preview will be shown.
+  -- On second press the preview will be closed and fold will be opened.
+  -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
+  { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
 -- {
 --   'Exafunction/codeium.vim',
 --   event = 'BufEnter'
@@ -238,6 +285,15 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
+-- test folding
+-- UFO folding
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep:|,foldclose:>]]
+--vim.o.foldmethod = "expr"
+--vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -427,6 +483,10 @@ local on_attach = function(_, bufnr)
   --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
+  local toggleInlay = function()
+    local current_value = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+    vim.lsp.inlay_hint.enable(not current_value, { bufnr = 0 })
+  end
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -435,6 +495,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  nmap('\\i', toggleInlay, 'toggle inlay hint')
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -483,7 +544,6 @@ local servers = {
   -- },
   -- pyright = {},
   rust_analyzer = {},
-  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   pylsp = {
 
