@@ -513,17 +513,17 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
- -- gopls = {
- --   gopls = {
- --     analyses = {
- --       unusedparams = true,
- --     },
- --     staticcheck = true,
- --   },
- -- },
+ gopls = {
+   gopls = {
+     analyses = {
+       unusedparams = true,
+     },
+     staticcheck = true,
+     gofumpt = true,
+},
+},
   -- pyright = {},
   rust_analyzer = {},
-  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   pylsp = {
 
@@ -695,5 +695,16 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+        local mode = vim.api.nvim_get_mode().mode
+        local filetype = vim.bo.filetype
+        if vim.bo.modified == true and mode == 'n' and filetype ~= "oil" then
+            vim.cmd('lua vim.lsp.buf.format()')
+        else
+        end
+    end
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
