@@ -186,4 +186,3 @@ bar {
 }
 bindsym Print exec flameshot gui
 focus_follows_mouse no
-
