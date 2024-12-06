@@ -174,3 +174,6 @@ detach_keyboard () {
     xinput float $keyboard_id
 }
 bind -x '"\C-f": tmux-sessionizer'
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

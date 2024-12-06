@@ -11,7 +11,7 @@ Kickstart.nvim is a template for your own configuration.
   what your configuration is doing, and modify it to suit your needs.
 
   Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!   
+  explore Neovim!
 
   If you don't know anything about Lua, I recommend taking some time to read through
   a guide. One possible example:
@@ -136,15 +136,26 @@ require('lazy').setup({
     },
   },
 
-    {
-      -- Theme inspired by Atom
-      'navarasu/onedark.nvim',
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme 'onedark'
-      end,
-    },
-  
+  {
+    -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
+  },
+  -- Or with configuration
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('github-theme').setup({
+        -- ...
+      })
+
+      vim.cmd('colorscheme github_dark_high_contrast')
+    end,
+  },
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -161,7 +172,7 @@ require('lazy').setup({
 
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',  
+    'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     main = "ibl",
@@ -191,10 +202,10 @@ require('lazy').setup({
       },
     },
   },
-  { 
+  {
     'nvim-treesitter/nvim-treesitter-context',
-    enable=true,
-    mode = 'outer', 
+    enable = true,
+    mode = 'outer',
     max_lines = 1,
     multiline_threshold = 1,
 
@@ -241,8 +252,8 @@ require('lazy').setup({
           require("statuscol").setup({
             relculright = true,
             segments = {
-              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+              { text = { "%s" },                  click = "v:lua.ScSa" },
               { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
             },
           })
@@ -280,7 +291,7 @@ require('lazy').setup({
 -- test folding
 -- UFO folding
 vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep:|,foldclose:>]]
@@ -369,7 +380,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sgf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
@@ -380,7 +391,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c','c_sharp', 'cpp', 'go','python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+  ensure_installed = { 'c', 'c_sharp', 'cpp', 'go', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
     'markdown' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -389,7 +400,7 @@ require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
     disable = "latex",
-    aditional_vim_regex_highlighting = {"latex", "markdown"}
+    aditional_vim_regex_highlighting = { "latex", "markdown" }
   },
   --indent = { enable = true },
   incremental_selection = {
@@ -513,15 +524,15 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
- gopls = {
-   gopls = {
-     analyses = {
-       unusedparams = true,
-     },
-     staticcheck = true,
-     gofumpt = true,
-},
-},
+  gopls = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
   -- pyright = {},
   rust_analyzer = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -696,15 +707,25 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        local mode = vim.api.nvim_get_mode().mode
-        local filetype = vim.bo.filetype
-        if vim.bo.modified == true and mode == 'n' and filetype ~= "oil" then
-            vim.cmd('lua vim.lsp.buf.format()')
-        else
-        end
+  callback = function()
+    local mode = vim.api.nvim_get_mode().mode
+    local filetype = vim.bo.filetype
+    if vim.bo.modified == true and mode == 'n' and filetype ~= "oil" then
+      vim.cmd('lua vim.lsp.buf.format()')
+    else
     end
+  end
 })
+
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+  local default_diagnostic_handler = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function(err, result, context, config)
+    if err ~= nil and err.code == -32802 then
+      return
+    end
+    return default_diagnostic_handler(err, result, context, config)
+  end
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
