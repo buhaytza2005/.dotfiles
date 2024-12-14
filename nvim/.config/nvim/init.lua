@@ -140,6 +140,9 @@ require('lazy').setup({
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
   },
   -- Or with configuration
   {
@@ -152,7 +155,7 @@ require('lazy').setup({
         -- ...
       })
 
-      vim.cmd('colorscheme github_dark_high_contrast')
+      vim.cmd('colorscheme github_dark_colorblind')
     end,
   },
 
@@ -163,7 +166,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'github_dark_colorblind',
         component_separators = '|',
         section_separators = '',
       },
@@ -705,6 +708,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
+vim.cmd.colorscheme 'github_dark_colorblind'
 
 vim.opt.colorcolumn = "100"
 vim.api.nvim_create_autocmd("FileType", {
