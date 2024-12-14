@@ -107,11 +107,13 @@ path+=$HOME/.local/scripts
 path+=$HOME/.local/bin
 path+=$HOME/.cargo/env
 path+=/usr/local/go/bin
+path+=$HOME/go/bin
 alias pip='noglob pip'
 export ENVIRONMENT='dev'
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 alias gac='git add . && git commit'
+alias cws='cargo workspaces'
 export PAGER=
 
 # Generated for envman. Do not edit.
