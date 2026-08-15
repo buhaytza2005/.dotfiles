@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 plugins=(git zsh-autosuggestions ssh-agent)
-zstyle :omz:plugins:ssh-agent identities github
+zstyle :omz:plugins:ssh-agent identities github azure
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -114,3 +114,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PAGER=
 alias gac='git add . && git commit'
 PATH="$HOME/neovim/bin:$PATH"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

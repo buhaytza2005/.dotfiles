@@ -276,6 +276,28 @@ require('lazy').setup({
   -- On second press the preview will be closed and fold will be opened.
   -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
   { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
+  {
+  "scalameta/nvim-metals",
+  ft = { "scala", "sbt", "java" },
+  opts = function()
+    local metals_config = require("metals").bare_config()
+    metals_config.on_attach = function(client, bufnr)
+      -- your on_attach function
+    end
+
+    return metals_config
+  end,
+  config = function(self, metals_config)
+    local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = self.ft,
+      callback = function()
+        require("metals").initialize_or_attach(metals_config)
+      end,
+      group = nvim_metals_group,
+    })
+  end
+}
 -- {
 --   'Exafunction/codeium.vim',
 --   event = 'BufEnter'
@@ -582,18 +604,17 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
+  automatic_enable = true,
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
-}
+for server_name, server_settings in pairs(servers) do
+  vim.lsp.config(server_name, {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = server_settings,
+    filetypes = server_settings.filetypes,
+  })
+end
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
